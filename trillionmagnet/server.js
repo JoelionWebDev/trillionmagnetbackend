@@ -18,12 +18,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //app.set("view engine", "ejs");
 
 //CREATING A FILE TO STORE ALL THE TOKENS
-const userTokenStore = fs.createWriteStream(
-  path.join(__dirname, "userTokens.log"),
-  { flags: "a" }
-);
-//init morgan
-app.use(morgan("tiny", { stream: userTokenStore }));
+// const userTokenStore = fs.createWriteStream(
+//   path.join(__dirname, "userTokens.log"),
+//   { flags: "a" }
+// );
+// //init morgan
+// app.use(morgan("tiny", { stream: userTokenStore }));
 
 // // bringing in my static files
 // app.use("/css", express.static(path.join(__dirname, "assets/css")));
@@ -36,7 +36,7 @@ app.use("/", router);
 app.use(notFound);
 app.use(errHandler);
 
-const port = process.env.Port;
+const port = process.env.Port || 3000;
 
 //init connections as async function
 const start = async () => {
