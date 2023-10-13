@@ -3,6 +3,7 @@ const router = require("./server/router/routes");
 const bodyParser = require("body-parser");
 const connectDB = require("./server/database/connections");
 const path = require("path");
+const cors = require("cors");
 const fs = require("fs");
 const morgan = require("morgan");
 const notFound = require("./middleware/not-found");
@@ -10,6 +11,14 @@ const errHandler = require("./middleware/error-handler");
 require("dotenv").config();
 
 const app = express();
+
+const corsOptions = {
+  origin: "*",
+  Credential: true,
+  optionSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
