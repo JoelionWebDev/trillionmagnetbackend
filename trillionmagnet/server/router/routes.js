@@ -9,7 +9,8 @@ const {
   deleteMessage,
 } = require("../../controller/controller");
 
-router.route("/").get(getAllMessage).post(createMessage);
+router.route("/getdata").get(getAllMessage);
+router.route("/reg").post(createMessage);
 router.route("/:id").get(getMessage).patch(updateMessage).delete(deleteMessage);
 
 module.exports = router;
