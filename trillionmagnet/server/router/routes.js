@@ -11,6 +11,7 @@ const {
 
 router.route("/getdata").get(getAllMessage);
 router.route("/reg").post(createMessage);
-router.route("/:id").get(getMessage).patch(updateMessage).delete(deleteMessage);
+router.route("/:id").get(getMessage).patch(updateMessage);
+router.route("/getdata/:id").delete(deleteMessage);
 
 module.exports = router;
