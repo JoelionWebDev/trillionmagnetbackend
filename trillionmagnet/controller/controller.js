@@ -27,7 +27,7 @@ const deleteMessage = asyncWrapper(async (req, res) => {
   if (!task) {
     return next(CreateCustomError(`No task with the Id : ${taskID}`));
   }
-  res.status(200).json({ task });
+  res.status(200).json(task);
 });
 
 const updateMessage = asyncWrapper(async (req, res) => {
