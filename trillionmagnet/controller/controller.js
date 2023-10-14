@@ -4,12 +4,12 @@ const CreateCustomError = require("../errors/errors-CustomApi");
 
 const getAllMessage = asyncWrapper(async (req, res) => {
   const tasks = await Tasks.find({});
-  res.status(200).json({ tasks });
+  res.status(200).json(tasks);
 });
 
 const createMessage = asyncWrapper(async (req, res) => {
   const task = await Tasks.create(req.body);
-  res.status(201).json({ task });
+  res.status(201).json(task);
 });
 
 const getMessage = asyncWrapper(async (req, res, next) => {
@@ -18,7 +18,7 @@ const getMessage = asyncWrapper(async (req, res, next) => {
   if (!task) {
     return next(CreateCustomError(`No task with the Id : ${taskID}`));
   }
-  res.status(200).json({ task });
+  res.status(200).json(task);
 });
 
 const deleteMessage = asyncWrapper(async (req, res) => {
@@ -40,7 +40,7 @@ const updateMessage = asyncWrapper(async (req, res) => {
     return next(CreateCustomError(`No task with the Id : ${taskID}`));
   }
 
-  res.status(200).json({ task });
+  res.status(200).json(task);
 });
 
 module.exports = {
